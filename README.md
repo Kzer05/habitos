@@ -23,7 +23,7 @@ The goal of the app is to help users create, maintain, and visualize their progr
 ### Steps
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/Kzer05/HabitosApp.git
+   git clone https://github.com/Kzer05/habitos.git
    cd HabitosApp
    ```
 
