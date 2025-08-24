@@ -1,0 +1,66 @@
+:root {
+    --background: #1F1D29;
+    --input-background: #18171F;
+    --input-border: #000000;
+    --nav-bg: #0c0c0c;
+    --text-color: white;
+    --header-bg: #0f0f0f;
+    --gray-text: #aaa;
+
+    --primary: #009D5E;
+    --error: #EA1E63;
+
+    --blue: #2194FF;
+    --purple: #9000FF;
+    --red: #EA1E63;
+    --orange: #FE9601;
+    --green: #28C928;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    user-select: none;
+}
+
+span, p, input, textarea {
+    user-select: auto;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.container {
+    padding: 20px;
+    flex: 1;
+}
+
+
+.color-1 {
+    background-color: var(--blue);
+}
+
+.color-2 {
+    background-color: var(--purple);
+}
+
+.color-3 {
+    background-color: var(--red);
+}
+
+.color-4 {
+    background-color: var(--orange);
+}
+
+.color-5 {
+    background-color: var(--green);
+}

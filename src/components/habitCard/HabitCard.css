@@ -1,0 +1,38 @@
+.habit-card {
+    border-radius: 12px;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.habit-card * {
+    user-select: none;
+}
+
+.habit-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.habit-days {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.habit-day {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.habit-day.-active {
+    background-color: white;
+    color: black;
+}

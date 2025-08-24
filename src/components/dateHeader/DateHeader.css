@@ -1,0 +1,56 @@
+header {
+    background: var(--header-bg);
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+header h2 {
+    font-size: 1rem;
+    color: var(--gray-text);
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+.date-header {
+    position: relative;
+}
+
+.calendar-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.281);
+}
+
+.calendar-wrapper {
+    /*     position: absolute;
+    top: 100%;
+    left: 0; */
+    z-index: 100;
+}
+
+.date-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    padding: 0 20px;
+}

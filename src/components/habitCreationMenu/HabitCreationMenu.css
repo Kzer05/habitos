@@ -1,0 +1,60 @@
+.floating.-closed {
+    display: none;
+}
+
+.floating.-opened {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background: linear-gradient(to bottom, #00000000, var(--header-bg));
+
+    position: fixed;
+    gap: 20px;
+    width: 100vw;
+    height: 30vh;
+    bottom: 8vh;
+
+    z-index: 20;
+    align-items: flex-end;
+}
+
+.floating.-opened span {
+    position: relative;
+    right: 30px;
+}
+
+.floating .create-habit-btn {
+    display: flex;
+    align-items: center;
+}
+
+.floating .create-habit-btn .floating-btn {
+    display: flex;
+    position: relative;
+    bottom: auto;
+    right: 20px;
+
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 15vh;
+    right: 20px;
+    background: var(--primary);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 48px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+}
+
+.floating-btn.manual {
+    bottom: 25vh;
+}

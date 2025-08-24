@@ -1,0 +1,74 @@
+.habits-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.habit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.habit input {
+    margin-right: 10px;
+}
+
+.habit.color-1 {
+    background: var(--blue);
+}
+
+.habit.color-2 {
+    background: var(--purple);
+}
+
+.habit.color-2 {
+    background: var(--purple);
+}
+
+.habit.color-2 {
+    background: var(--purple);
+}
+
+.habit.color-2 {
+    background: var(--purple);
+}
+
+/* Container do checkbox */
+.habit input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 4px solid white;
+    border-radius: 8px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+
+/* Estilo do check (✔) */
+.habit input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    top: -20px;
+    left: -2px;
+    rotate: -20deg;
+}
+
+@media (min-width: 768px) {
+    .habit input[type="checkbox"]:checked::after {
+        rotate: 0deg;
+    }
+}

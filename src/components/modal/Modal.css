@@ -1,0 +1,69 @@
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #1e1e2e;
+    color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.modal-icon.warn {
+    color: #ffc107;
+}
+
+.modal-icon.error {
+    color: #e53935;
+}
+
+.modal-icon.success {
+    color: #4caf50;
+}
+
+.modal-ok-button {
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: #00c896;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-ok-button:hover {
+    background: #00b083;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 4px solid #00c896;
+    border-top-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

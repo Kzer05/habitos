@@ -1,0 +1,81 @@
+body {
+    overflow-y: auto;
+}
+
+.habit-manager-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.habit-manager-container header {
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    background-color: var(--background);
+
+    margin-bottom: -20px;
+    padding-left: 20px;
+
+    font-size: 50px;
+    width: 100%;
+    z-index: 100;
+}
+
+.habit-manager-container header h2 {
+    font-size: 30px;
+    margin-left: 10px;
+    color: var(--text-color);
+    width: 100%;
+    text-align: left;
+    padding: 0;
+}
+
+.habit-manager-container header .back-button {
+    cursor: pointer;
+}
+
+.habit-manager-container header .delete-button {
+    text-align: right;
+    background: none;
+    border: none;
+    color: var(--error);
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    top: -5px;
+}
+
+.habit-manager-container header .delete-button img {
+    width: 80%;
+}
+
+.habit-manager-container .input-container:first-of-type {
+    margin-top: 80px;
+}
+
+.habit-manager-container .submit-button {
+    width: 80%;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.obs {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 70px;
+}

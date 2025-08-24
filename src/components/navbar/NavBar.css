@@ -1,0 +1,38 @@
+
+#navbar {
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+
+    position: fixed;
+    bottom: 0;
+
+    width: 100vw;
+    height: 10vh;
+
+    z-index: 100;
+}
+
+#navbar button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    /* font-size: 2em; */
+    padding: 15px;
+    height: 90%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar button img{
+    height: 95%;
+}
+
+#navbar button.-selected {
+    background: var(--primary);
+    border-radius: 99999px;
+}
