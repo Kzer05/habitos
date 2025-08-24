@@ -24,7 +24,7 @@ The goal of the app is to help users create, maintain, and visualize their progr
 1. Clone the repository:  
    ```bash
    git clone https://github.com/Kzer05/habitos.git
-   cd HabitosApp
+   cd habitos
    ```
 
 2. Install dependencies:  
