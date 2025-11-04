@@ -58,13 +58,13 @@ export default function HabitAICreator() {
 
         try {
             const response = await axios.post<HabitData>(
-                'https://habitos-backend-5zis.onrender.com/habito',
+                'https://habitos-backend-gemini.onrender.com/habito',
                 {
                     question: habit.description,
                 },
                 {
                     headers: {
-                        Authorization: 'Bearer IHC',
+                        authorization: 'Bearer revigorah-token',
                     },
                 }
             )
