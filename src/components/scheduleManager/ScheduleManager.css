@@ -1,0 +1,93 @@
+.schedule-manager {
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e2f;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.schedule-manager h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.schedule-list {
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.schedule-item span {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions .edit {
+    background: none;
+    border: none;
+    color: #00aaff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.actions .delete {
+    background: none;
+    border: none;
+    color: #ff0088;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-schedule {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-schedule input[type="time"] {
+    background-color: #2a2a3d;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 1rem;
+}
+
+.add-schedule button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-schedule button.save {
+    background-color: #00cc88;
+}
+
+.add-schedule button.add {
+    background-color: #007bff;
+}
+
+.empty {
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+}

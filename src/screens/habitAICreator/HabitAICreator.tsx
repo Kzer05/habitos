@@ -13,6 +13,7 @@ interface HabitData {
     frequency: number
     color: number
     daysOfTheWeek: number[]
+    schedules: string[]
 }
 
 type ModalType = 'warn' | 'error' | 'success' | 'loading' | null
@@ -26,6 +27,7 @@ export default function HabitAICreator() {
         frequency: 1,
         color: 0,
         daysOfTheWeek: [],
+        schedules: []
     })
 
     const [errors, setErrors] = useState<{ [K in keyof HabitData]?: string }>({})

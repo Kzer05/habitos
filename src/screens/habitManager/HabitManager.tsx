@@ -10,6 +10,7 @@ import Habit from '../../models/Habit'
 import { v4 as uuidv4 } from 'uuid'
 import type CompletedDay from '../../models/CompletedDay'
 import deleteImage from '../../assets/delete.png'
+import ScheduleManager from "../../components/scheduleManager/ScheduleManager"
 
 
 export interface HabitData {
@@ -20,6 +21,7 @@ export interface HabitData {
     daysOfTheWeek: number[]
     color: number
     completedDays?: CompletedDay[]
+    schedules: string[]
 }
 
 export default function HabitManager() {
@@ -37,7 +39,8 @@ export default function HabitManager() {
         frequency: habitFromState?.frequency || 1,
         daysOfTheWeek: habitFromState?.daysOfTheWeek || [],
         color: habitFromState?.color || 1,
-        completedDays: habitFromState?.completedDays || []
+        completedDays: habitFromState?.completedDays || [],
+        schedules: habitFromState?.schedules || []
     })
 
     const [errors, setErrors] = useState<{ [K in keyof HabitData]?: string }>({})
@@ -129,6 +132,11 @@ export default function HabitManager() {
                 type='number'
                 placeholder='Ex: 10'
             />
+            <ScheduleManager
+                schedules={habit.schedules}
+                onChange={(schedules) => handleChange("schedules", schedules)}
+            />
+
             <DayWeekSelector
                 selectedDays={habit.daysOfTheWeek}
                 onChange={(days) => handleChange('daysOfTheWeek', days)}

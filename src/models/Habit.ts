@@ -8,6 +8,7 @@ export default class Habit {
     color: number;
     daysOfTheWeek: number[];
     completedDays?: CompletedDay[];
+    schedules?: string[]
 
     constructor(
         id: string,
@@ -16,7 +17,8 @@ export default class Habit {
         frequency: number,
         color: number,
         daysOfTheWeek: number[],
-        completedDays?: CompletedDay[]
+        completedDays?: CompletedDay[],
+        schedules?: string[]
     ) {
         this.id = id;
         this.name = name;
@@ -25,6 +27,6 @@ export default class Habit {
         this.color = color;
         this.daysOfTheWeek = daysOfTheWeek;
         this.completedDays = completedDays;
-
+        this.schedules = schedules;
     }
 }
