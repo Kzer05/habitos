@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./ScheduleManager.css"
+import editIcon from '../../assets/blue_edit.png'
+import deleteIcon from '../../assets/red_delete.png'
 
 interface ScheduleManagerProps {
     schedules: string[]
@@ -46,6 +48,10 @@ export default function ScheduleManager({ schedules, onChange }: ScheduleManager
         setEditingIndex(null)
     }
 
+    useEffect(()=> {
+        console.log("AA", schedules)
+    }, [])
+
     return (
         <div className="schedule-manager">
             <h3>Horário</h3>
@@ -57,8 +63,8 @@ export default function ScheduleManager({ schedules, onChange }: ScheduleManager
                         <div key={index} className="schedule-item">
                             <span>{time.slice(0, 5)}</span>
                             <div className="actions">
-                                <button className="edit" onClick={() => handleEdit(index)}>Editar</button>
-                                <button className="delete" onClick={() => handleDelete(index)}>Excluir</button>
+                                <button className="edit" onClick={() => handleEdit(index)}><img src={editIcon} alt="Editar"/></button>
+                                <button className="delete" onClick={() => handleDelete(index)}><img src={deleteIcon} alt="Excluir"/></button>
                             </div>
                         </div>
                     ))

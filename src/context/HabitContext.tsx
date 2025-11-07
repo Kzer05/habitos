@@ -36,6 +36,7 @@ export function HabitProvider({ children }: { children: ReactNode }) {
                             h.frequency,
                             h.color,
                             h.daysOfTheWeek,
+                            h.schedules
                         )
                 )
                 setHabitsState(hydrated)

@@ -3,19 +3,20 @@
     flex-direction: column;
     background-color: #1e1e2f;
     border-radius: 12px;
-    padding: 12px;
     color: white;
     font-family: sans-serif;
 }
 
 .schedule-manager h3 {
-    font-size: 1.2rem;
+    font-size: 14px;
+    font-weight: normal;
     margin-bottom: 10px;
 }
 
 .schedule-list {
-    border: 1px solid #333;
-    border-radius: 10px;
+    background-color: var(--input-background);
+    border: solid var(--input-border) 2px;
+    color: var(--text-colort);    border-radius: 10px;
     padding: 10px;
 }
 
@@ -28,7 +29,8 @@
 
 .schedule-item span {
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-left: 10px;
 }
 
 .actions {
@@ -60,9 +62,9 @@
 }
 
 .add-schedule input[type="time"] {
-    background-color: #2a2a3d;
-    border: 1px solid #444;
-    color: white;
+    background-color: var(--input-background);
+    border: solid var(--input-border) 2px;
+    color: var(--text-colort);
     border-radius: 6px;
     padding: 6px;
     font-size: 1rem;

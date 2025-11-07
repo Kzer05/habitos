@@ -1,19 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { convertNumberToWeek } from '../../utils/functions'
 import './HabitCard.css'
-import type CompletedDay from '../../models/CompletedDay'
+import type Habit from '../../models/Habit'
 
 interface HabitCardProps {
-    id: string
-    name: string
-    description: string
-    frequency: number
-    color: number
-    daysOfTheWeek: number[]
-    completedDays?: CompletedDay[]
+    habit: Habit
 }
 
-export default function HabitCard({ id, name, description, frequency, color, daysOfTheWeek, completedDays }: HabitCardProps) {
+export default function HabitCard({ habit: {id, name, description, frequency, color, daysOfTheWeek, completedDays, schedules}  }: HabitCardProps) {
     const navigate = useNavigate()
 
     const handleSelectHabit = () => {
@@ -25,7 +19,8 @@ export default function HabitCard({ id, name, description, frequency, color, day
                 frequency,
                 color: color,
                 daysOfTheWeek,
-                completedDays
+                completedDays,
+                schedules
             }
         })
 

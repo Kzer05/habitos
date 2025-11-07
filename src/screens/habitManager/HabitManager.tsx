@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './HabitManager.css'
 import InputField from '../../components/inputField/InputField'
 import DayWeekSelector from '../../components/dayWeekSelector/DayWeekSelector'
@@ -8,32 +8,20 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useHabits } from '../../context/HabitContext'
 import Habit from '../../models/Habit'
 import { v4 as uuidv4 } from 'uuid'
-import type CompletedDay from '../../models/CompletedDay'
 import deleteImage from '../../assets/delete.png'
 import ScheduleManager from "../../components/scheduleManager/ScheduleManager"
 
-
-export interface HabitData {
-    id?: string
-    name: string
-    description: string
-    frequency: number
-    daysOfTheWeek: number[]
-    color: number
-    completedDays?: CompletedDay[]
-    schedules: string[]
-}
 
 export default function HabitManager() {
     const navigate = useNavigate()
     const location = useLocation()
     const { habits, setHabits } = useHabits()
 
-    const habitFromState = location.state as HabitData | undefined
+    const habitFromState = location.state as Habit | undefined
     const isEdit = !!habitFromState?.id
 
-    const [habit, setHabit] = useState<HabitData>({
-        id: habitFromState?.id, // pode ser undefined se for novo
+    const [habit, setHabit] = useState<Habit>({
+        id: habitFromState?.id || '', // pode ser undefined se for novo
         name: habitFromState?.name || '',
         description: habitFromState?.description || '',
         frequency: habitFromState?.frequency || 1,
@@ -43,7 +31,7 @@ export default function HabitManager() {
         schedules: habitFromState?.schedules || []
     })
 
-    const [errors, setErrors] = useState<{ [K in keyof HabitData]?: string }>({})
+    const [errors, setErrors] = useState<{ [K in keyof Habit]?: string }>({})
 
     const validate = () => {
         const newErrors: typeof errors = {}
@@ -54,18 +42,22 @@ export default function HabitManager() {
         return Object.keys(newErrors).length === 0
     }
 
-    const handleChange = (field: keyof HabitData, value: any) => {
+    const handleChange = (field: keyof Habit, value: any) => {
+        console.log(field)
         setHabit({ ...habit, [field]: value })
     }
+
+    useEffect(()=> {console.log("Todos os hábitos", habits)}, [habits])
+    useEffect(()=> {console.log("Habito alterado", habit)}, [habit])
 
     const handleSubmit = () => {
         if (!validate()) return
 
-        if (isEdit && habit.id) {
+        if (isEdit && habit.id && habit.id != '') {
             // Edição
             const updatedHabits = habits.map(h =>
                 h.id === habit.id
-                    ? new Habit(habit.id, habit.name, habit.description, habit.frequency, habit.color, habit.daysOfTheWeek, habit.completedDays)
+                    ? new Habit(habit.id, habit.name, habit.description, habit.frequency, habit.color, habit.daysOfTheWeek, habit.completedDays, habit.schedules)
                     : h
             )
             setHabits(updatedHabits)
@@ -77,7 +69,9 @@ export default function HabitManager() {
                 habit.description,
                 habit.frequency,
                 habit.color,
-                habit.daysOfTheWeek
+                habit.daysOfTheWeek,
+                undefined,
+                habit.schedules
             )
             setHabits([...habits, newHabit])
         }
@@ -109,7 +103,6 @@ export default function HabitManager() {
                 )}
             </header>
 
-
             <InputField
                 label='Nome*'
                 value={habit.name}
@@ -133,7 +126,7 @@ export default function HabitManager() {
                 placeholder='Ex: 10'
             />
             <ScheduleManager
-                schedules={habit.schedules}
+                schedules={habit.schedules || []}
                 onChange={(schedules) => handleChange("schedules", schedules)}
             />
 

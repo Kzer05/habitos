@@ -12,7 +12,7 @@ export default function ListHabitsScreen() {
 
             <div className="habit-list">
                 {habits.length > 0 ? habits.map((habit) => (
-                    <HabitCard key={habit.id} {...habit} />
+                    <HabitCard key={habit.id} habit={habit} />
                 )) : 'Crie um novo habíto clicando no botão "+"'}
                 <Space height={60} width="100%" />
             </div>
