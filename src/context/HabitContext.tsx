@@ -15,7 +15,7 @@ const HABITS_KEY = "habits"
 
 export function HabitProvider({ children }: { children: ReactNode }) {
     const [habits, setHabitsState] = useState<Habit[]>([])
-    const [isLoaded, setIsLoaded] = useState(false) 
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const now = new Date()
     const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate() + 1).padStart(2, '0')}`
@@ -28,23 +28,26 @@ export function HabitProvider({ children }: { children: ReactNode }) {
             try {
                 const parsed = JSON.parse(savedHabits)
                 const hydrated = parsed.map(
-                    (h: any) =>
-                        new Habit(
+                    (h: any) => {
+                        console.log("h", h)
+                        return new Habit(
                             h.id,
                             h.name,
                             h.description,
                             h.frequency,
                             h.color,
-                            h.daysOfTheWeek,
-                            h.schedules
-                        )
+                            h.daysOfTheWeek || [],
+                            h.completedDays || [],
+                            h.schedules || [])
+                    }
                 )
+                console.log("Hidratado", hydrated)
                 setHabitsState(hydrated)
             } catch (err) {
                 console.error("Error loading habits from localStorage:", err)
             }
         }
-        setIsLoaded(true) 
+        setIsLoaded(true)
     }, [])
 
     // Save to localStorage only after load

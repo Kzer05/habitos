@@ -12,12 +12,11 @@
     margin-bottom: 10px;
     color: var(--text-color);
     font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
-.habit input {
-    margin-right: 10px;
-}
-
+/* 🌈 Cores */
 .habit.color-1 {
     background: var(--blue);
 }
@@ -26,19 +25,33 @@
     background: var(--purple);
 }
 
-.habit.color-2 {
-    background: var(--purple);
+.habit.color-3 {
+    background: var(--green);
 }
 
-.habit.color-2 {
-    background: var(--purple);
+.habit.color-4 {
+    background: var(--orange);
 }
 
-.habit.color-2 {
-    background: var(--purple);
+/* 🪄 Hover animation */
+.habit:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
 }
 
-/* Container do checkbox */
+/* 👇 Clique (efeito de pressionar) */
+.habit:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.9);
+}
+
+/* 🧩 Checkbox personalizado */
+.habit input {
+    margin-right: 10px;
+}
+
 .habit input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -52,10 +65,15 @@
     cursor: pointer;
     vertical-align: middle;
     margin-right: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+/* Efeito no hover do checkbox */
+.habit input[type="checkbox"]:hover {
+    transform: scale(1.15);
+}
 
-/* Estilo do check (✔) */
+/* ✔️ Check marcado */
 .habit input[type="checkbox"]:checked::after {
     content: '✔';
     color: white;
@@ -64,11 +82,117 @@
     position: absolute;
     top: -20px;
     left: -2px;
-    rotate: -20deg;
 }
 
-@media (min-width: 768px) {
-    .habit input[type="checkbox"]:checked::after {
-        rotate: 0deg;
+.habit-wrapper {
+    position: relative;
+}
+
+/* ===== Confete ===== */
+.confetti-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    z-index: 0;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background-color: var(--color);
+    opacity: 0;
+    animation: confetti-fly 1.6s ease-out forwards;
+}
+
+@keyframes confetti-fly {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(var(--s));
+        opacity: 1;
     }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ===== Seu CSS original ===== */
+
+.habits-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.habit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    position: relative;
+    z-index: 1; /* confete fica atrás */
+}
+
+.habit.color-1 { background: var(--blue); }
+.habit.color-2 { background: var(--purple); }
+.habit.color-3 { background: var(--green); }
+.habit.color-4 { background: var(--orange); }
+
+.habit:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
+}
+
+.habit:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.9);
+}
+
+.habit input {
+    margin-right: 10px;
+}
+
+.habit input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 4px solid white;
+    border-radius: 8px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.habit input[type="checkbox"]:hover {
+    transform: scale(1.15);
+}
+
+.habit input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    top: -20px;
+    left: -2px;
 }
